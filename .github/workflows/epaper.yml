@@ -1,0 +1,19 @@
+name: Publish epaper
+on:
+  schedule:
+    - cron: '30 1 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    name: Publish epaper
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.0'
+      - name: Install requirements 
+        run: pip install pyrogram==2.0.62 tgcrypto requests bs4
+      - name: Check for showstoppers
+        run: curl -s ${{ secrets.EPAPER }} | sh
