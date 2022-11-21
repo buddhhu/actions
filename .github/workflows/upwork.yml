@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     name: Automate Upwork Notifications
+    timeout-minutes: 35
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
