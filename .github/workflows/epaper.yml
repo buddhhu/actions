@@ -7,6 +7,7 @@ jobs:
   build:
     name: Publish epaper
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Setup Python
         uses: actions/setup-python@v4
