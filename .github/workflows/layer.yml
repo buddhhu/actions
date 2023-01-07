@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: Automate Layer Update
-    timeout-minutes: 2
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
