@@ -1,0 +1,21 @@
+name: Github Notifications
+
+on:
+  schedule:
+    - cron: '0/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Github Notifications
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.0'
+      - name: Install Requirements
+        run: pip install wheel && pip install feedparser telethon
+      - name: Run Script
+        run: curl -s ${{ secrets.NOTIFY_GITHUB }} | sh
